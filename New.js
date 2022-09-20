@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { generalStyles } from './GeneralStyles';
 
-export default function App() {
+export default function New() {
     return (
         <View style={styles.newMovies}>
-            <Text style={styles.text}>New movies</Text>
+            <br></br>
         </View>
     );
 }
@@ -15,11 +16,5 @@ const styles = StyleSheet.create({
         fontSize: '30px',
         backgroundColor: '#212121',
         color:'white'
-
     },
-
-    text:{
-        fontSize: '18px',
-        color:'white'
-    }
 });

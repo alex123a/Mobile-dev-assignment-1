@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "./HomeScreen";
@@ -19,9 +17,18 @@ export default function App() {
                     headerTintColor: '#fff',
                     headerTitleStyle: {
                         fontWeight: 'bold',
+                        fontFamily:'Helvetica',
                     },
-                    }} 
-                />
+                    headerTitleAlign: 'center',
+                    tabBarActiveBackgroundColor: '#0492C2',
+                    tabBarInactiveBackgroundColor: '#191970',
+                    tabBarActiveTintColor: 'white',
+                    tabBarInactiveTintColor: 'white',
+                    tabBarLabelStyle: {
+                        fontSize: '15px',
+                    }
+                }} />
+
                 <Tab.Screen name='Trending movies' component={Trending} options={{
                     headerStyle: {
                         backgroundColor: '#191970',
@@ -29,30 +36,38 @@ export default function App() {
                     headerTintColor: '#fff',
                     headerTitleStyle: {
                         fontWeight: 'bold',
+                        fontFamily:'Helvetica',
                     },
-                    }} 
-                />
+                    headerTitleAlign: 'center',
+                    tabBarActiveBackgroundColor: '#0492C2',
+                    tabBarInactiveBackgroundColor: '#191970',
+                    tabBarActiveTintColor: 'white',
+                    tabBarInactiveTintColor: 'white',
+                    tabBarLabelStyle: {
+                        fontSize: '15px',
+                    }
+                }} />
+
                 <Tab.Screen name='New movies' component={New} options={{
                     headerStyle: {
                         backgroundColor: '#191970',
                     },
-                    
                     headerTintColor: '#fff',
                     headerTitleStyle: {
                         fontWeight: 'bold',
+                        fontFamily:'Helvetica',
                     },
-                    }} 
-                />
+                    headerTitleAlign: 'center',
+                    tabBarActiveBackgroundColor: '#0492C2',
+                    tabBarInactiveBackgroundColor: '#191970',
+                    tabBarActiveTintColor: 'white',
+                    tabBarInactiveTintColor: 'white',
+                    tabBarLabelStyle: {
+                        fontSize: '15px',
+                    }
+                }} />
+
             </Tab.Navigator>
         </NavigationContainer>
     );
 }
-
-const styles = StyleSheet.create({
-    // container: {
-    //     flex: 1,
-    //     backgroundColor: '#fff',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
-});
