@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import { generalStyles } from './GeneralStyles';
 import React, { useEffect, useState } from "react";
 import { FlatList, TouchableHighlight } from 'react-native-web';
+import MovieElement from './MovieElement';
 import HomeScreen from './homeScreen';
 
 const API_key = "c10814e271b904c7c347871cad37e980";
@@ -11,10 +12,6 @@ export default function Trending() {
 
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetchMovies();
-    }, []);
-
     function fetchMovies() {
         // My own note Alex: This print makes it work, don't question it.
         fetch(
@@ -22,8 +19,11 @@ export default function Trending() {
         )
             .then((response) => response.json())
             .then((data) => setData(data.results));
-        console.log(data.results);
     }
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
 
     const renderItem = ({ item }) => (
         <MovieElement navigation={navigation} movieId={item.id} title={item.title} imagePath={item.poster_path} />
@@ -40,21 +40,6 @@ export default function Trending() {
         </View>
     );
 }
-
-// onPress={() => navigation.navigate("DetailedPage", { movieId })
-const MovieElement = ({ navigation, title, movieId, imagePath}) => (
-    <View style={generalStyles.movieContainer}>
-        <Text style={generalStyles.movieHeader}>{title}</Text>
-        <TouchableHighlight onPress={() => navigation.navigate(HomeScreen)}>
-            <Image
-                style={generalStyles.image}
-                source={{
-                    uri: `https://image.tmdb.org/t/p/original${imagePath}`,
-                }}
-            />
-        </TouchableHighlight>
-    </View>
-);
 
 const styles = StyleSheet.create({
     trendingMovies: {
