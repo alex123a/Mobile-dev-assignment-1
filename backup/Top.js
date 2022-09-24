@@ -4,9 +4,9 @@ import { FlatList } from 'react-native-web';
 import MovieElement from './MovieElement';
 import { API_key } from './API_key';
 
-const API_url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_key}&language=en-US&page=1`
+const API_url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_key}&language=en-US&page=1`
 
-export default function Trending({ navigation }) {
+export default function Top({ navigation }) {
 
     const [data, setData] = useState([]);
 
@@ -27,7 +27,7 @@ export default function Trending({ navigation }) {
     );
 
     return (
-        <View style={styles.trendingMovies}>
+        <View style={styles.topMovies}>
             <FlatList
                 data={data}
                 renderItem={renderItem}
@@ -38,7 +38,7 @@ export default function Trending({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    trendingMovies: {
+    topMovies: {
         flex: 1, 
         alignItems: 'center',
         fontSize: 30,

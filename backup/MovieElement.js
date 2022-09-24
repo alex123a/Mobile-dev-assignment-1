@@ -2,14 +2,17 @@ import { Text, View, Image } from 'react-native';
 import { generalStyles } from './GeneralStyles';
 import React from "react";
 import { TouchableHighlight } from 'react-native-web';
-import HomeScreen from './homeScreen';
 
-// onPress={() => navigation.navigate("DetailedPage", { props.movieId })
 export default function MovieElement(props) {
+    const movieId = props.movieId;
     return (
         <View style={generalStyles.movieContainer}>
             <Text style={generalStyles.movieHeader}>{props.title}</Text>
-            <TouchableHighlight onPress={() => navigation.navigate(HomeScreen)}>
+            <TouchableHighlight 
+                onPress={() => props.navigation.navigate(
+                    "DetailedPage", { movieId }
+                )}
+            >
                 <Image
                     style={generalStyles.image}
                     source={{
